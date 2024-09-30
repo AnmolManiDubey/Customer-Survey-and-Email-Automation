@@ -1,0 +1,113 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #2C3E50, #4CA1AF); /* Dark gradient background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    background: #1f1f1f; /* Dark background for container */
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* Stronger shadow for dark theme */
+    width: 100%;
+    max-width: 450px;
+    text-align: center;
+    margin: auto;
+    animation: fadeIn 1s ease-in-out;
+    transition: transform 0.3s ease;
+}
+
+.container:hover {
+    transform: scale(1.02);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+h1 {
+    margin-bottom: 30px;
+    color: #fff; /* White text for better contrast */
+    font-size: 28px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); /* Subtle shadow for text */
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: #ccc; /* Light grey for labels */
+    font-size: 16px;
+    font-weight: 500;
+}
+
+input, select {
+    display: block;
+    width: calc(100% - 24px);
+    padding: 12px;
+    margin: 0 auto;
+    border: 1px solid #555; /* Dark border for inputs */
+    border-radius: 10px;
+    font-size: 16px;
+    background-color: #333; /* Dark background for input */
+    color: #fff; /* White text for inputs */
+    transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus, select:focus {
+    border-color: #6a67ce;
+    box-shadow: 0 0 12px rgba(106, 103, 206, 0.8); /* Stronger glow for focus */
+    outline: none;
+}
+
+button {
+    width: 100%;
+    padding: 15px;
+    background-color: #6a67ce; /* Purple button for pop of color */
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+button:hover {
+    background-color: #554dcc; /* Darker shade for hover */
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(85, 77, 204, 0.5); /* Softer shadow on hover */
+}
+
+button:active {
+    transform: translateY(0);
+    box-shadow: none;
+}
+
+#result {
+    margin-top: 25px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #fff; /* White text for result */
+}

@@ -1,0 +1,8 @@
+Flask
+Werkzeug==2.2.2
+SQLAlchemy
+pandas
+xgboost
+joblib
+python-dotenv
+scikit-learn

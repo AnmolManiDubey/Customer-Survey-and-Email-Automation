@@ -1,0 +1,56 @@
+{% extends 'layout.html' %}
+
+{% block head %}
+    <!-- Linking the external CSS file -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+{% endblock %}
+
+{% block content %}
+    <div class="col-sm-10 ml-auto mr-auto ">
+        <h2>Survey Details</h2>
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Date</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Gender</th>
+                    <th scope="col">Ever Married</th>
+                    <th scope="col">Age</th>
+                    <th scope="col">Graduated</th>
+                    <th scope="col">Profession</th>
+                    <th scope="col">Work Experience</th>
+                    <th scope="col">Spending Score</th>
+                    <th scope="col">Family Size</th>
+                    <th scope="col">Cluster</th>
+                    <th scope="col">Delete</th>
+                    <th scope="col">Send Mail</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for entry in entries %}
+                    <tr>
+                        <td>{{ entry.date.strftime("%d-%m-%Y") }}</td>
+                        <td>{{ entry.name }}</td>
+                        <td>{{ entry.email }}</td>
+                        <td>{{ entry.gender }}</td>
+                        <td>{{ entry.ever_married }}</td>
+                        <td>{{ entry.age }}</td>
+                        <td>{{ entry.graduated }}</td>
+                        <td>{{ entry.profession }}</td>
+                        <td>{{ entry.work_experience }}</td>
+                        <td>{{ entry.spending_score }}</td>
+                        <td>{{ entry.family_size }}</td>
+                        <td>{{ entry.cluster }}</td>
+                        <td>
+                            <a href="{{ url_for('delete', entry_id = entry.id) }}" class="btn btn-outline-danger btn-sm">Delete</a>
+                        </td>
+                        <td>
+                            <a href="{{ url_for('individual_mail', email=entry.email, name=entry.name, pred=entry.cluster) }}" class="btn btn-outline-primary btn-sm">Send Mail</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Survey</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Customer Survey</h1>
+        <form id="surveyForm" onsubmit="submitForm(event)">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" placeholder="Enter your name" required>
+            </div>
+            <div class="form-group">
+                <label for="user_email">Email:</label>
+                <input type="email" id="user_email" name="user_email" placeholder="Enter your email" required>
+            </div>
+            <div class="form-group">
+                <label for="gender">Gender:</label>
+                <select id="gender" name="gender" required>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="ever_married">Ever Married:</label>
+                <select id="ever_married" name="ever_married" required>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                    <option value="Prefer not to disclose">Prefer not to disclose</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="age">Age:</label>
+                <input type="number" id="age" name="age" placeholder="Enter your age" min="0" max="100" required>
+            </div>
+            <div class="form-group">
+                <label for="graduated">Graduated:</label>
+                <select id="graduated" name="graduated" required>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                    <option value="Prefer not to disclose">Prefer not to disclose</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="profession">Profession:</label>
+                <select id="profession" name="profession" required>
+                    <option value="Healthcare">Healthcare</option>
+                    <option value="Engineer">Engineer</option>
+                    <option value="Lawyer">Lawyer</option>
+                    <option value="Entertainment">Entertainment</option>
+                    <option value="Artist">Artist</option>
+                    <option value="Executive">Executive</option>
+                    <option value="Doctor">Doctor</option>
+                    <option value="Homemaker">Homemaker</option>
+                    <option value="Marketing">Marketing</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="work_experience">Work Experience:</label>
+                <input type="number" id="work_experience" name="work_experience" placeholder="Enter your work experience" min="0" max="15" value="0" required>
+            </div>
+            <div class="form-group">
+                <label for="spending_score">Spending Score:</label>
+                <select id="spending_score" name="spending_score" required>
+                    <option value="Low">Low</option>
+                    <option value="Average">Average</option>
+                    <option value="High">High</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="family_size">Family Size:</label>
+                <input type="number" id="family_size" name="family_size" placeholder="Enter your family size" min="1" max="9" value="1" required>
+            </div>
+            <button type="submit" onclick="submitForm()" id="submitButton">Submit</button>
+        </form>
+        <h2 id="msg"></h2>
+        <div id="result"></div>
+    </div>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
+
