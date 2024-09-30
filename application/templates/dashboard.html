@@ -1,0 +1,114 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+    <!-- Cluster Count Chart -->
+    <div class="col-xs-10 col-sm-6 col-md-6">
+        <div class="card card-style mb-2">
+            <div class="card-header">
+                <h5>Cluster Count</h5>
+            </div>
+            <div class="card-body">
+                <div class="chart-container" style="position: relative;">
+                    <canvas id="cluster_count"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Profession Count Chart -->
+    <div class="col-xs-10 col-sm-6 col-md-6">
+        <div class="card card-style mb-2">
+            <div class="card-header">
+                <h5>Profession Count</h5>
+            </div>
+            <div class="card-body">
+                <div class="chart-container" style="position: relative;">
+                    <canvas id="profession_count"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% block javascript %}
+        <script>
+            // Cluster Count Data
+            let cluster_count_data = JSON.parse({{ count | tojson }});
+            let cluster_label_data = JSON.parse({{ cluster_label | tojson }});
+
+            // Cluster Count Chart
+            let cluster_count_data_chart = new Chart("cluster_count", {
+                type: 'pie',
+                data: {
+                    labels: cluster_label_data,
+                    datasets: [{
+                        label: "Cluster Count",
+                        data: cluster_count_data,
+                        backgroundColor: ['#5DA5DA', '#FAA43A', '#60BD68', '#B276B2', '#E16851', '#FB8267'],
+                        borderWidth: 1,
+                        hoverBorderColor: "black",
+                        hoverBorderWidth: 2,
+                        hoverBackgroundColor: 'rgba(154, 245, 140)',
+                        pointHoverRadius: 5
+                    }]
+                },
+                options: {
+                    title: {
+                        display: true,
+                        text: "Cluster Count",
+                        fontSize: 20
+                    },
+                    legend: {
+                        position: "right",
+                        labels: {
+                            fontColor: "gray"
+                        },
+                        display: true
+                    },
+                    elements: {
+                        hitRadius: 3
+                    }
+                }
+            });
+
+            // Profession Count Data
+            let prof_count_data = JSON.parse({{ prof_count | tojson }});
+            let prof_label_data = JSON.parse({{ prof_label | tojson }});
+
+            // Profession Count Chart
+            let profession_count_data_chart = new Chart("profession_count", {
+                type: 'pie',
+                data: {
+                    labels: prof_label_data,
+                    datasets: [{
+                        label: "Profession Count",
+                        data: prof_count_data,
+                        backgroundColor: ['#5DA5DA', '#FAA43A', '#60BD68', '#B276B2', '#E16851', '#FB8267'],
+                        borderWidth: 1,
+                        hoverBorderColor: "black",
+                        hoverBorderWidth: 2,
+                        hoverBackgroundColor: 'rgba(154, 245, 140)',
+                        pointHoverRadius: 5
+                    }]
+                },
+                options: {
+                    title: {
+                        display: true,
+                        text: "Profession Count",
+                        fontSize: 20
+                    },
+                    legend: {
+                        position: "right",
+                        labels: {
+                            fontColor: "gray"
+                        },
+                        display: true
+                    },
+                    elements: {
+                        hitRadius: 3
+                    }
+                }
+            });
+        </script>
+    {% endblock %}
+
+{% endblock %}
